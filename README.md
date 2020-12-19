@@ -42,9 +42,9 @@ This project was built by Delaney Charney for Challenge Assignment No.9 of the U
 
 ## Mock-Up
 
-[How to create a Professional README](./dist/readme-guide.md)
+[How to create a Professional README](./ref/readme-guide.md)
 
-![Assignment mockup image](./dist/README_mockup.png)
+![Assignment mockup image](./ref/README_mockup.png)
 
 ---
 
