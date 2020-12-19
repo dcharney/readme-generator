@@ -1,74 +1,70 @@
+# Professional README Generator
+![javascript](https://img.shields.io/github/languages/top/dcharney/readme-generator?style=plastic) ![Last Commit](https://img.shields.io/github/last-commit/dcharney/readme-generator?style=plastic) ![Open Issues](https://img.shields.io/github/issues-raw/dcharney/readme-generator?style=plastic) ![Contributors](https://img.shields.io/github/contributors/dcharney/readme-generator?style=plastic) 
 
-# Challenge 9: Professional README Generator
+## Description
 
 This repository contains the tools to generate a professional readme file via a series of command line prompts. By utilizing this tool, you can skip straight to developing your project!
 
 The resulting file will conatain all the basic information any good readme file should contain including what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions.
 
-link to walkthrough video: _____________
+A video walkthrough on how to set up and use this tool can be viewed at: _____________
 
-This project was built by Delaney Charney for Challenge Assignment No.9 of the UCF Coding Bootcamp. The requirements for the assignment are detailed below.
+## Table of Contents
 
----
-
-## User Story
-
-    AS A developer
-        I WANT a README generator
-            SO THAT I can quickly create a professional README for a new project
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
 
----
+## Installation
 
-## Acceptance Criteria
+To get this project set up and ready to go:
 
-    GIVEN a command-line application that accepts user input
-        WHEN I am prompted for information about my application repository
-            THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-        WHEN I enter my project title
-            THEN this is displayed as the title of the README
-        WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-            THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-        WHEN I choose a license for my application from a list of options
-            THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-        WHEN I enter my GitHub username
-            THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-        WHEN I enter my email address
-            THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-        WHEN I click on the links in the Table of Contents
-            THEN I am taken to the corresponding section of the README
+1. Create a local copy of the repository.
 
----
+```
+>>git clone git@github.com:dcharney/readme-generator.git
+```
+2. Install all required npm packages.
 
-## Mock-Up
+```
+>>npm install
+```
 
-[How to create a Professional README](./ref/readme-guide.md)
+## Usage
 
-![Assignment mockup image](./ref/README_mockup.png)
+After the app has been successfully installed, follow the instructions below to generate your readme file:
 
----
+1. Place any images you will want to reference in your readme file in the ./dist/assets/images folder.*
 
-## Grading Requirements
+2. Open a terminal in the root project folder and run the following command:
 
-This challenge is graded based on the following criteria:
+```
+>>node index.js
+```
 
-### Deliverables: 20%
-    A sample README generated using the application must be submitted.
-    Your GitHub repository containing your application code.
+2. Fill out the information as prompted.
 
-### Walkthrough Video: 27%
-    A walkthrough video that demonstrates the functionality of the README generator must be submitted and a link to the video should be included in your README file.
-    The walkthrough video must demonstrate how a user would invoke the application from the command line.
-    The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-    The walkthrough video must demonstrate a generated README that matches the user input and has a functioning table of contents.
+3. Your completed readme file will be located in the ./dist folder!**
 
-### Technical Acceptance Criteria: 40%
-    Satisfies all of the above acceptance criteria plus the following:
-        Uses the Inquirer package (Links to an external site.).
+\* *If your images are not displaying correctly, verify that the image name given is accurate and that the image has been placed in the correct folder location.*
 
-### Repository Quality: 13%
-    Repository has a unique name.
-    Repository follows best practices for file structure and naming conventions.
-    Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-    Repository contains multiple descriptive commit messages.
-    Repository contains a high-quality README with description and a link to walkthrough video.
+** *The readme file generated will contain a link to your project's license. In order for this link to function properly, your license should be located in the root folder and titled 'license.txt' (not case sensitive).*
+
+
+## Contributing
+
+If you would like to contribute to this project, please follow the rules of the [Contributor Covenant](https://www.contributor-covenant.org/).
+
+## Tests
+
+Open a terminal in the root project folder and run the following command:
+```
+>>npm test
+```
+
+## Questions
+
+If you have any questions about the repo, open an issue or contact me directly at delaneycharney@gmail.com. You can find more of my work at [dcharney](https://github.com/dcharney/).
