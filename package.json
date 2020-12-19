@@ -4,7 +4,7 @@
   "description": "This repository contains the tools to generate a professional readme file via a series of command line prompts. By utilizing this tool, you can skip straight to developing your project!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/sample.js"
   },
   "author": "dcharney",
   "license": "ISC",

@@ -1,8 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 
+// link array of sample answers for testing functionality
+const sampleAnswers = require('./test/sample-answers');
+
 // TODO: Create an array of questions for user input
-const questions = [{
+const questions = [
     {
         type: 'input',
         name: 'username',
@@ -73,13 +76,18 @@ const questions = [{
         name: 'testInstructions',
         message: 'Please enter the test instructions:'
     }
-}];
+];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+//function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+//function init() {}
 
 // Function call to initialize app
-init();
+//init();
+
+const promptUser = () => inquirer.prompt(questions);
+
+promptUser().then(answers => console.log(answers));
+

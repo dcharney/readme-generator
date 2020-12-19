@@ -25,7 +25,7 @@ module.exports = {
     4. Add any desired mockup images to the ./dist/assets/images folder
 
     5. Your completed readme file will be located in the ./dist folder!`,
-    license: ['MIT'],
+    license: 'MIT',
     contribGuidelines: 'If you would like to contribute to this project, please follow the rules of the [Contributor Covenant](https://www.contributor-covenant.org/).',
     testInstructions: `Open a terminal in the root project folder and run the following command:
     \`\`\`
