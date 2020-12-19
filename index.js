@@ -1,5 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const generateReadme = require('./src/readme-template.js');
+const writeFile = require('./utils/generate-readme.js');
 
 // link array of sample answers for testing functionality
 const sampleAnswers = require('./test/sample-answers');
@@ -34,7 +36,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'projectTitle',
+        name: 'title',
         message: 'What is your project\'s title? (Required)',
         validate: projectTitle => {
             if (projectTitle) {
@@ -47,17 +49,17 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'projectDescription',
+        name: 'description',
         message: 'Please enter a description of your project:'
     },
     {
         type: 'input',
-        name: 'installInstructions',
+        name: 'installation',
         message: 'How can users install your project?'
     },
     {
         type: 'input',
-        name: 'usageInfo',
+        name: 'usage',
         message: 'Please enter usage information:'
     },
     {
@@ -68,18 +70,15 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contribGuidelines',
+        name: 'contribution',
         message: 'Please enter the contribution guidelines:'
     },
     {
         type: 'input',
-        name: 'testInstructions',
+        name: 'test',
         message: 'Please enter the test instructions:'
     }
 ];
-
-// TODO: Create a function to write README file
-//function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 //function init() {}
@@ -89,5 +88,18 @@ const questions = [
 
 const promptUser = () => inquirer.prompt(questions);
 
-promptUser().then(answers => console.log(answers));
+promptUser()
+    .then(answers => {
+        return generateReadme(answers)
+    })
+    .then(readmeContents => {
+        return writeFile(readmeContents)
+    })
+    .then(response => {
+        console.log(response.messge);
+        console.log('All Done!');
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
