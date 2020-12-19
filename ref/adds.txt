@@ -45,3 +45,5 @@
 2. create function for install instructiobs and usage info sections to generate user input as numbered list 
 
 3. switch user prompts to command inputs instead of full section descriptions (test instructions)
+
+4. validate github username 

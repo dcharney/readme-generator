@@ -1,14 +1,19 @@
-// link array of sample answers for testing functionality
+// import necessary functions and data
+
+// import function to generate contents of readme
+const generateReadme = require('../src/readme-template');
+// import function to write contents into a readme file
+const writeFile = require('../utils/generate-readme.js');
+// links array of sample answers to skip user prompts
 const sampleAnswers = require('./sample-answers.js');
 
-// TODO: Create a function to write README file
-//function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-//function init() {}
-
-// Function call to initialize app
-//init();
-
-console.log(sampleAnswers);
-
+// run the test script
+writeFile(generateReadme(sampleAnswers))
+    .then(response => {
+        console.log(response.message);
+        console.log('All Done!');
+    })
+    .catch(err => {
+        console.log(err);
+    });
