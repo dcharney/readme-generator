@@ -4,3 +4,4 @@ package-lock.json
 .DS_Store
 dist/README.md
 adds.txt
+toDelete.js

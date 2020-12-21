@@ -64,6 +64,7 @@ Open a terminal in the root project folder and run the following command:
 ```
 >>npm test
 ```
+A readme file will be generated in the /dist folder. The resulting file should match [this](./test/sample-README.md).
 
 ## Questions
 

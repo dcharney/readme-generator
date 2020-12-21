@@ -35,72 +35,32 @@ const questions = [
         message: 'What does your project do? Enter a short description:'
     },
     {
-        type: 'confirm',
-        name: 'stringOrList',
-        message: 'Are multiple steps required to install your application?'
+        type: 'input',
+        name: 'installation',
+        message: 'How should your project be installed?'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Please enter usage information:'
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'What kind of license does your project have?',
+        choices: ['MIT','APACHE 2.0','GPL 3.0','BSD 3','NONE']
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'Please enter the contribution guidelines:'
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'Please enter the test instructions:'
     }
-    // ,
-    // {
-    //     type: 'input',
-    //     name: 'usage',
-    //     message: 'Please enter usage information:'
-    // },
-    // {
-    //     type: 'list',
-    //     name: 'license',
-    //     message: 'What kind of license should your project have?',
-    //     choices: ['MIT','APACHE 2.0','GPL 3.0','BSD 3','NONE']
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'contribution',
-    //     message: 'Please enter the contribution guidelines:'
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'test',
-    //     message: 'Please enter the test instructions:'
-    // }
 ];
-
-const promptList = localArr => {
-    // if description string does not exist, create
-    if (!localArr.list) {localArr.list = []};
-
-    let listQuestions = [
-        {
-            type: 'confirm',
-            name: 'confirmCommand',
-            message: 'Is this step a command to be run in terminal?'
-        },
-        {
-            type: 'input',
-            name: 'listItem',
-            message: 'Enter?'
-        },
-        {
-            type: 'confirm',
-            name: 'confirmMoreSteps',
-            message: 'Is another step required?',
-            default: false
-        }
-    ]
-
-    return inquirer.prompt().then(data => {
-        localArr.list.push(data);
-        if (data.confirmMoreSteps) {
-            return promptList(localArr);
-        } else {
-            return localArr;
-        }
-    });
-}
-
-// TODO: Create a function to initialize app
-//function init() {}
-
-// Function call to initialize app
-//init();
 
 const promptUser = () => inquirer.prompt(questions);
 console.log(`
@@ -124,7 +84,9 @@ promptUser()
     })
     .then(response => {
         log(response.message);
-        console.log('Congratulations, your completed readme file is now located in the /dist folder. Happy Coding!');
+        console.log(`
+-----------------
+Congratulations, your completed readme file is now located in the /dist folder. Happy Coding!`);
     })
     .catch(err => {
         console.log(err);
