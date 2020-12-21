@@ -1,45 +1,27 @@
-// TODO: Include packages needed for this application
+// link required packages
 const inquirer = require('inquirer');
 const generateReadme = require('./src/readme-template.js');
 const writeFile = require('./utils/generate-readme.js');
-
-// link array of sample answers for testing functionality
-const sampleAnswers = require('./test/sample-answers');
+const log = require('single-line-log').stdout;
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
         name: 'username',
-        message: 'What is your GitHub username? (Required)',
-        validate: username => {
-            if (username) {
-                return true;
-            } else {
-                console.log('Please enter your username!');
-                return false;
-            }
-        }
+        message: 'What is your GitHub username?'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'What is your email address? (Required)',
-        validate: email => {
-            if (email) {
-                return true;
-            } else {
-                console.log('Please enter an email address!');
-                return false;
-            }
-        }
+        message: 'What is your email address?'
     },
     {
         type: 'input',
         name: 'title',
         message: 'What is your project\'s title? (Required)',
-        validate: projectTitle => {
-            if (projectTitle) {
+        validate: title => {
+            if (title) {
                 return true;
             } else {
                 console.log('Please enter a project title!');
@@ -50,35 +32,69 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please enter a description of your project:'
+        message: 'What does your project do? Enter a short description:'
     },
     {
-        type: 'input',
-        name: 'installation',
-        message: 'How can users install your project?'
-    },
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'Please enter usage information:'
-    },
-    {
-        type: 'list',
-        name: 'license',
-        message: 'What kind of license should your project have?',
-        choices: ['MIT','APACHE 2.0','GPL 3.0','BSD 3','NONE']
-    },
-    {
-        type: 'input',
-        name: 'contribution',
-        message: 'Please enter the contribution guidelines:'
-    },
-    {
-        type: 'input',
-        name: 'test',
-        message: 'Please enter the test instructions:'
+        type: 'confirm',
+        name: 'stringOrList',
+        message: 'Are multiple steps required to install your application?'
     }
+    // ,
+    // {
+    //     type: 'input',
+    //     name: 'usage',
+    //     message: 'Please enter usage information:'
+    // },
+    // {
+    //     type: 'list',
+    //     name: 'license',
+    //     message: 'What kind of license should your project have?',
+    //     choices: ['MIT','APACHE 2.0','GPL 3.0','BSD 3','NONE']
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'contribution',
+    //     message: 'Please enter the contribution guidelines:'
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'test',
+    //     message: 'Please enter the test instructions:'
+    // }
 ];
+
+const promptList = localArr => {
+    // if description string does not exist, create
+    if (!localArr.list) {localArr.list = []};
+
+    let listQuestions = [
+        {
+            type: 'confirm',
+            name: 'confirmCommand',
+            message: 'Is this step a command to be run in terminal?'
+        },
+        {
+            type: 'input',
+            name: 'listItem',
+            message: 'Enter?'
+        },
+        {
+            type: 'confirm',
+            name: 'confirmMoreSteps',
+            message: 'Is another step required?',
+            default: false
+        }
+    ]
+
+    return inquirer.prompt().then(data => {
+        localArr.list.push(data);
+        if (data.confirmMoreSteps) {
+            return promptList(localArr);
+        } else {
+            return localArr;
+        }
+    });
+}
 
 // TODO: Create a function to initialize app
 //function init() {}
@@ -87,17 +103,28 @@ const questions = [
 //init();
 
 const promptUser = () => inquirer.prompt(questions);
+console.log(`
+============================================
+    ~ WELCOME TO THE README GENERATOR ~
+============================================
+
+Prompts that require responses are indicated, 
+but it is strongly that you respond to all 
+prompts to generate the best readme file.
+`)
 
 promptUser()
     .then(answers => {
+        log('Building readme contents...');
         return generateReadme(answers)
     })
     .then(readmeContents => {
+        log('Generating markdown file...');
         return writeFile(readmeContents)
     })
     .then(response => {
-        console.log(response.messge);
-        console.log('All Done!');
+        log(response.message);
+        console.log('Congratulations, your completed readme file is now located in the /dist folder. Happy Coding!');
     })
     .catch(err => {
         console.log(err);

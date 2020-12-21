@@ -1,4 +1,10 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// FUNCTION builds description section of readme file if user submitted a value
+// IN string
+function renderDescription(description) {
+    if (description) {}
+}
+
+// Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
     if (license == "NONE") {
@@ -8,7 +14,7 @@ function renderLicenseBadge(license) {
     };
 };
 
-// TODO: Create a function that returns the license section of README
+// Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
     if (license == "NONE") {
@@ -20,6 +26,7 @@ function renderLicenseSection(license) {
 Licensed under the [${license}](./license.txt) license.`
     };
 };
+
 
 // TODO: Create a function to generate markdown for README
 module.exports = data => {
