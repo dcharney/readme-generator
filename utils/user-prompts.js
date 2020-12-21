@@ -46,13 +46,19 @@ const stringQuestions = [
     {
         type: 'input',
         name: 'listItem',
-        message: '>>> Please type the command as it would be entered:',
+        message: '>>> Enter command:',
+        when: answers => answers.confirmCommand
+    },
+    {
+        type: 'input',
+        name: 'command_description',
+        message: '>>> What does this command do?',
         when: answers => answers.confirmCommand
     },
     {
         type: 'input',
         name: 'listItem',
-        message: '>>> Please enter the instructions:',
+        message: '>>> Enter Instructions:',
         when: answers => !answers.confirmCommand
     }
 ];
@@ -67,6 +73,12 @@ const listQuestions = [
         type: 'input',
         name: 'listItem',
         message: '>>> Enter command:',
+        when: answers => answers.confirmCommand
+    },
+    {
+        type: 'input',
+        name: 'command_description',
+        message: '>>> What does this command do?',
         when: answers => answers.confirmCommand
     },
     {
