@@ -47,11 +47,11 @@ module.exports = {
         { confirmCommand: false, listItem: 'Follow the Installation instructions as described above.', confirmMoreSteps: true },
         { confirmCommand: true, listItem: 'node index.js', command_description: 'Run the main application', confirmMoreSteps: true },
         { confirmCommand: false, listItem: 'Fill out the information as prompted.', confirmMoreSteps: true },
-        { confirmCommand: false, listItem: 'Add any desired mockup images to the ./dist/assets/images folder.', confirmMoreSteps: true }
+        { confirmCommand: false, listItem: 'Add any desired mockup images to the ./dist/assets/images folder.', confirmMoreSteps: true },
         { confirmCommand: false, listItem: 'Your completed readme file will be located in the ./dist folder!', confirmMoreSteps: false }
     ],
     license: 'MIT',
     contribution: 'If you would like to contribute to this project, please follow the rules of the [Contributor Covenant](https://www.contributor-covenant.org/).',
     test_stringOrList: false,
     test: [ { confirmCommand: true, listItem: 'npm test', command_description: 'run the main test script' } ]
-;}
+};
